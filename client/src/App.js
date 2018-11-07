@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import './App.css';
+
+// Provider is a React component with the Store.
+import { Provider } from 'react-redux';
+import store from './store';
 
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -13,6 +18,7 @@ import Login from './components/auth/Login';
 class App extends Component {
   render() {
     return (
+      <Provider store = {store}>
       <Router>
       <div className="App">
         <Navbar />
@@ -24,6 +30,7 @@ class App extends Component {
         <Footer />
       </div>
       </Router>
+      </Provider>
     );
   }
 }
